@@ -13,7 +13,7 @@ class NewsRelatedPlus extends \Frontend
     }
 
 
-    public function addRelatedNews($objTemplate, $arrNews, $objModule)
+    public function addRelatedNews($objTemplateList, $arrNews, $objModule)
     {
         switch ($objModule->type)
         {
@@ -41,6 +41,8 @@ class NewsRelatedPlus extends \Frontend
                 \Input::setGet('items', $arrNews['alias']);
                 $objArticle = $this->Helper->getRelated($objModule->news_archives, $objModule->related_match, $objModule->related_priority, $limit);
                 \Input::setGet('items', $strTmp);
+
+                $objTemplate = clone $objTemplateList;
 
                 if ($objArticle)
                 {
@@ -147,11 +149,11 @@ class NewsRelatedPlus extends \Frontend
                     }
 
                     // assign articles
-                    $objTemplate->info             = $GLOBALS['TL_LANG']['MSC']['related_info'];
-                    $objTemplate->related_headline = $GLOBALS['TL_LANG']['MSC']['related_headline'];
+                    $objTemplateList->info             = $GLOBALS['TL_LANG']['MSC']['related_info'];
+                    $objTemplateList->related_headline = $GLOBALS['TL_LANG']['MSC']['related_headline'];
                     if (!empty($arrArticles) && is_array($arrArticles))
                     {
-                        $objTemplate->newsRelated = $arrArticles;
+                        $objTemplateList->newsRelated = $arrArticles;
                     }
                     else
                     {
