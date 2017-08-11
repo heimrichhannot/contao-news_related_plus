@@ -19,6 +19,7 @@ class NewsRelatedPlus extends \Frontend
         {
             case 'newslist':
             case 'newslist_plus':
+            case 'membernewslist':
                 $strStringClass = $this->strClass();
 
                 // Limit
@@ -37,10 +38,13 @@ class NewsRelatedPlus extends \Frontend
                 }
 
                 $this->import('NewsRelatedHelper', 'Helper');
-                $strTmp = \Input::get('items');
+                $strAutoItemTmp = \Input::get('auto_item');
+                $strItemsTmp    = \Input::get('items');
+                \Input::setGet('auto_item', $arrNews['alias']);
                 \Input::setGet('items', $arrNews['alias']);
                 $objArticle = $this->Helper->getRelated($objModule->news_archives, $objModule->related_match, $objModule->related_priority, $limit);
-                \Input::setGet('items', $strTmp);
+                \Input::setGet('auto_item', $strAutoItemTmp);
+                \Input::setGet('items', $strItemsTmp);
 
                 $objTemplate = clone $objTemplateList;
 
