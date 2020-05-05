@@ -25,4 +25,5 @@ ClassLoader::addClasses(array
 (
 	// Classes
 	'HeimrichHannot\NewsRelatedPlus\NewsRelatedPlus' => 'system/modules/news_related_plus/classes/NewsRelatedPlus.php',
+    'NewsRelated\NewsRelatedHelper'                  => 'system/modules/news_related_plus/classes/NewsRelatedHelper.php',
 ));
