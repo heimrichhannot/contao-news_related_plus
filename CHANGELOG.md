@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.1.1] - 2020-05-06
+
+- fixed issue in NewsRelatedHelper
+
 ## [1.1.0] - 2020-05-05
 
 - fixed SELECT issue in NewsRelatedHelper in news_related
