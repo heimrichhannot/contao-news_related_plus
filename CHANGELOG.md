@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.1.2] - 2020-05-15
+
+- fixed issue in NewsRelatedHelper
+
 ## [1.1.1] - 2020-05-06
 
 - fixed issue in NewsRelatedHelper

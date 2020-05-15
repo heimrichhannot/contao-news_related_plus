@@ -45,6 +45,11 @@ class NewsRelatedHelper extends \Frontend
 
 		// Parent id and categories of current news
     $objPid = $this->Database->prepare("SELECT pid".($extension ? ",categories" : "")." FROM tl_news WHERE id=? OR alias=?")->execute($news_alias,$news_alias);
+
+		if ($objPid->numRows < 1) {
+		    return null;
+        }
+
 		$pid = $objPid->pid;
 
     $newsID = \NewsModel::findPublishedByParentAndIdOrAlias($news_alias, $news_archives)->id;
